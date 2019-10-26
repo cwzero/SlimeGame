@@ -22,13 +22,13 @@ std::string Slime::product()
 	switch (_species)
 	{
 	case Fire:
-		return "fire";
+		return "Fire Crystal";
 	case Water:
-		return "water";
+		return "Water Crystal";
 	case Earth:
-		return "earth";
+		return "Earth Crystal";
 	case Air:
-		return "air";
+		return "Air Crystal";
 	};
 	return "null";
 }
@@ -68,11 +68,6 @@ int Slime::produceThreshold()
 	{
 		// Most basic threshold, 10x10
 		threshold = 100;
-	}
-
-	if (_age == Adult && _purity == Ten && _ranking == Divine)
-	{
-
 	}
 
 	if (threshold == -1) 
@@ -118,26 +113,26 @@ void Slime::feed(int nutrition)
 
 void Slime::ageUp()
 {
+	int a = static_cast<int>(_age);
+	a++;
+	_age = static_cast<Age>(a);
+
 	switch (_age)
 	{
 	case Infant:
 		cout << "Aged up to adolescent" << endl;
-		_age = Adolescent;
 		break;
 	case Adolescent:
-		cout << "Aged up to adult" << endl;
-		_age = Adult;
+		cout << "Aged up to adolescent" << endl;
 		break;
 	case Adult:
-		cout << "Aged up to elder" << endl;
-		_age = Elder;
+		cout << "Aged up to adult" << endl;
 		break;
 	case Elder:
-		cout << "Aged up to ancient" << endl;
-		_age = Ancient;
+		cout << "Aged up to elder" << endl;
 		break;
 	case Ancient:
-		cout << "What do we do when we age up an ancient slime?" << endl;
+		cout << "Aged up to ancient" << endl;
 		break;
 	}
 }
